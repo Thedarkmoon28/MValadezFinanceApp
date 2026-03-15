@@ -1,14 +1,13 @@
 package com.example.financeapp.components
 
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.unit.dp
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.dp
 import com.example.financeapp.data.SummaryCard
 
 @Composable
@@ -17,60 +16,92 @@ fun SummarySection(cards: List<SummaryCard>) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(horizontal = 16.dp)
+            .padding(16.dp)
+            .height(160.dp)
     ) {
 
+        // Tarjeta grande izquierda
         Card(
             modifier = Modifier
                 .weight(1f)
-                .height(140.dp),
+                .fillMaxHeight(),
             shape = RoundedCornerShape(20.dp),
             colors = CardDefaults.cardColors(cards[0].color)
         ) {
 
-            Box(contentAlignment = Alignment.Center) {
+            Box(
+                modifier = Modifier.fillMaxSize(),
+                contentAlignment = Alignment.Center
+            ) {
 
                 Column(horizontalAlignment = Alignment.CenterHorizontally) {
 
-                    Text("Actividad", fontWeight = FontWeight.Bold)
+                    Text(
+                        text = "Actividad",
+                        fontWeight = FontWeight.Bold
+                    )
+
                     Text("de la Semana")
                 }
             }
         }
 
-        Spacer(modifier = Modifier.width(10.dp))
+        Spacer(modifier = Modifier.width(12.dp))
 
-        Column(modifier = Modifier.weight(1f)) {
+        // Columna derecha
+        Column(
+            modifier = Modifier
+                .weight(1f)
+                .fillMaxHeight()
+        ) {
 
             Card(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(65.dp),
+                    .weight(1f),
                 shape = RoundedCornerShape(20.dp),
                 colors = CardDefaults.cardColors(cards[1].color)
             ) {
 
-                Column(modifier = Modifier.padding(12.dp)) {
+                Column(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(12.dp),
+                    verticalArrangement = Arrangement.Center
+                ) {
 
                     Text("Ventas")
-                    Text("$${cards[1].amount}")
+
+                    Text(
+                        "$${cards[1].amount}",
+                        fontWeight = FontWeight.Bold
+                    )
                 }
             }
 
-            Spacer(modifier = Modifier.height(10.dp))
+            Spacer(modifier = Modifier.height(12.dp))
 
             Card(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(65.dp),
+                    .weight(1f),
                 shape = RoundedCornerShape(20.dp),
                 colors = CardDefaults.cardColors(cards[2].color)
             ) {
 
-                Column(modifier = Modifier.padding(12.dp)) {
+                Column(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(12.dp),
+                    verticalArrangement = Arrangement.Center
+                ) {
 
                     Text("Ganancias")
-                    Text("$${cards[2].amount}")
+
+                    Text(
+                        "$${cards[2].amount}",
+                        fontWeight = FontWeight.Bold
+                    )
                 }
             }
         }

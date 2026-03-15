@@ -23,8 +23,8 @@ fun HomeScreen(modifier: Modifier = Modifier) {
         Transaction("Gas Station","Fuel",-30.5,"12:15 PM"),
         Transaction("Coffee Shop","Food & Drinks",5.75,"8:00 AM"),
         Transaction("Electronics Store","Electronics",120.0,"3:45 PM"),
-        Transaction("Book Store","Books",15.0,"1:20 PM"),
-        Transaction("Restaurant","Dining",32.5,"7:30 PM")
+        Transaction("Book Store","Books",25.99,"2:00 PM"),
+        Transaction("Restaurant","Dining",60.0,"7:30 PM")
     )
 
     Column(modifier = modifier) {
